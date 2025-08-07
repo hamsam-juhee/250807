@@ -80,3 +80,32 @@ def get_career_recommendation(mbti):
         "ESTJ": {
             "career": ["소방관🚒", "경찰관👮‍♀️"],
             "reason": "책임감이 강하고, 리더십이 있어.\n"
+                      "'사람을 지키는 소방관이나 경찰'처럼 중요한 역할을 잘해낼 수 있어! 💪"
+        },
+        "ESFJ": {
+            "career": ["사회복지사🤝", "유치원 교사👩‍👧‍👦"],
+            "reason": "친절하고, 사람들을 잘 챙기는 너!\n"
+                      "'어려운 사람 도와주는 일'이나 '아이들을 돌보는 선생님' 잘 어울려. 🌼"
+        },
+        "ENFJ": {
+            "career": ["교사👩‍🏫", "리더십 멘토🎓"],
+            "reason": "사람들을 이끄는 힘이 있고, 공감능력도 좋아!\n"
+                      "'학생들을 가르치는 선생님'이나 '다른 사람 이끌어주는 멘토'로 활약해봐! 💫"
+        },
+        "ENTJ": {
+            "career": ["CEO🏢", "정치인🧑‍⚖️"],
+            "reason": "계획 잘 세우고, 리더가 되는 걸 잘해!\n"
+                      "'회사를 이끄는 CEO'나 '사람들을 위한 결정을 내리는 정치인'이 잘 맞아! 🧭"
+        }
+    }
+
+    return data.get(mbti, {"career": ["직업 정보 없음"], "reason": "해당 MBTI에 대한 설명이 아직 준비 중이에요."})
+
+if selected_mbti:
+    info = get_career_recommendation(selected_mbti)
+    st.subheader(f"🌟 {selected_mbti} 타입에게 어울리는 진로 🌟")
+    st.markdown("### ✅ 추천 직업:")
+    for job in info["career"]:
+        st.markdown(f"- {job}")
+    st.markdown("### 💡 왜 이 진로가 좋을까?")
+    st.write(info["reason"])
